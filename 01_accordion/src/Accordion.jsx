@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-
+import './Accordion.css';
 
 const AccordionItem = ({ id, title, info, toggleAccordion, isActive }) => {
   // every time you click on + or - button, we are sending that particular clicked accordion component id to the function (which is in the parent component ex; App.jsx)
@@ -10,11 +10,19 @@ const AccordionItem = ({ id, title, info, toggleAccordion, isActive }) => {
 
   return (
     <div className='accordion-container'>
-      <h2>{title}</h2>
-      <button onClick={handleClick} aria-expanded={isActive}>
-        {isActive ? '-' : '+'}
-      </button>
-      {isActive && <p>{info}</p>}
+      <div className='toggleInfo'>
+        <h2>{title}</h2>
+        <button
+          className='toggleButton'
+          onClick={handleClick}
+          aria-expanded={isActive}
+        >
+          {isActive ? '-' : '+'}
+        </button>
+      </div>
+      <div className={`accordion-content ${isActive ? 'open' : ''}`}>
+        <p>{info}</p>
+      </div>
     </div>
   );
 };

@@ -1,6 +1,7 @@
 import { useState, useCallback } from 'react';
 import AccordionItem from './Accordion';
 import data from './data';
+import './App.css';
 
 const App = () => {
   // state to maintain checkbox
@@ -43,23 +44,29 @@ const App = () => {
   );
 
   return (
-    <div>
-      <label htmlFor='multiple-open'>Allow multiple accordions open?</label>
-      <input
-        type='checkbox'
-        id='multiple-open'
-        checked={allowMultipleOpen}
-        onChange={handleCheckboxChange}
-      />
-      {data.map((item) => (
-        <AccordionItem
-          key={item.id}
-          //below line of `.has` helps us to toggle the info
-          isActive={activeAccordions.has(item.id)}
-          toggleAccordion={toggleAccordion}
-          {...item}
+    <div className='app-container'>
+      <div className='checkboxContainer'>
+        <label className='checkboxLabel' htmlFor='multiple-open'>
+          Allow multiple accordions open?
+        </label>
+        <input
+          type='checkbox'
+          id='multiple-open'
+          checked={allowMultipleOpen}
+          onChange={handleCheckboxChange}
         />
-      ))}
+      </div>
+      <div className='content-info'>
+        {data.map((item) => (
+          <AccordionItem
+            key={item.id}
+            //below line of `.has` helps us to toggle the info
+            isActive={activeAccordions.has(item.id)}
+            toggleAccordion={toggleAccordion}
+            {...item}
+          />
+        ))}
+      </div>
     </div>
   );
 };
