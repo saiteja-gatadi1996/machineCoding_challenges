@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 
+
 const AccordionItem = ({ id, title, info, toggleAccordion, isActive }) => {
   // every time you click on + or - button, we are sending that particular clicked accordion component id to the function (which is in the parent component ex; App.jsx)
   const handleClick = () => {
