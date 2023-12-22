@@ -3,40 +3,16 @@ import useTimeout from '../src/customHooks/useTimeout';
 import './App.css'; // Import the CSS file
 
 const App = () => {
-  const [count, setCount] = useState(0);
-  const [isActive, setIsActive] = useState(false);
+  const [message, setMessage] = useState('Waiting for timeout...');
 
   useTimeout(() => {
-    if (isActive) {
-      setCount((currentCount) => currentCount + 1);
-    }
-  }, 1000);
-
-  const startTimer = () => setIsActive(true);
-  const stopTimer = () => setIsActive(false);
-  const resetTimer = () => {
-    setCount(0);
-    setIsActive(false);
-  };
+    setMessage('Timeout completed!');
+  }, 5000);
 
   return (
-    <div className='app-container'>
-      <div className='counter'>
-        Function gets called {count} times (every 1 second)
-      </div>
-      <div className='buttons'>
-        <button className='button' onClick={startTimer}>
-          Start
-        </button>
-        <button className='button' onClick={stopTimer}>
-          Stop
-        </button>
-        <button className='button reset' onClick={resetTimer}>
-          Reset
-        </button>
-      </div>
+    <div>
+      <h1>{message}</h1>
     </div>
   );
 };
-
 export default App;
