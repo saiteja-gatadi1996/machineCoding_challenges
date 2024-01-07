@@ -15,6 +15,7 @@ const DropZone = () => {
     setWinner(0);
   };
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const findWinner = () => {
     const p1 = dropped.filter((d) => d.player === 1);
 
@@ -77,8 +78,8 @@ const DropZone = () => {
   useEffect(() => {
     if (dropped.length === rows * cols) setWinner(-1);
 
-    findWinner();
-  }, [dropped.length]);
+    findWinner() ;
+  }, [dropped.length, findWinner]);
 
   return (
     <div className='drop-zone'>
