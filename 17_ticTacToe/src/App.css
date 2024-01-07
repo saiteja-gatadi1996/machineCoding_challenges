@@ -1,0 +1,47 @@
+.game-board {
+  display: grid;
+  grid-template-columns: repeat(
+    var(--board-size),
+    1fr
+  ); /* Set this to the size of your board */
+  grid-gap: 5px;
+  justify-content: center;
+  align-items: center;
+}
+
+.game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 600px; /* Adjust this value based on the max size you want */
+  margin: auto;
+}
+
+.game-cell {
+  width: calc((600px - (5px * (var(--board-size) - 1))) / var(--board-size));
+  height: calc((600px - (5px * (var(--board-size) - 1))) / var(--board-size));
+  border: 1px solid #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.reset-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.error-message {
+  color: red;
+  margin-bottom: 10px;
+}
