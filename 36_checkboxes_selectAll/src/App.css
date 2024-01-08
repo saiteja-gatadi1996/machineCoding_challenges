@@ -1,0 +1,22 @@
+/* Add this to your CSS file */
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  font-family: Arial, sans-serif;
+  font-size: 26px;
+}
+
+.checkbox-group {
+  margin: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.parent-checkbox {
+  margin-bottom: 20px;
+}
